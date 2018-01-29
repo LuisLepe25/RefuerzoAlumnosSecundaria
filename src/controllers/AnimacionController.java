@@ -81,12 +81,12 @@ public class AnimacionController {
         try {
             DAO conn = new DAO();
             conn.conectar();
-            conn.selectPrueba();    
+            conn.selectPrueba();
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(AnimacionController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }    
+    }
+    
     private void configurarTamanos(){
         ivAnimacion.setTranslateX(100);
         ivAnimacion.setTranslateY(0);

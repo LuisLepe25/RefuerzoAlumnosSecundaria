@@ -37,7 +37,7 @@ public class DAO {
      * Este metodo solo debe usarse si se borra la base de datos embebida
      * @throws SQLException 
      */
-    public void crearBase() throws SQLException{
+    public void crearBaseDeDatos() throws SQLException{
         String sql = "";
         sql += "CREATE TABLE Materia ( materia_id int NOT NULL AUTO_INCREMENT, materia_nombre char(100) NOT NULL, PRIMARY KEY (materia_id));";
         sql += "CREATE TABLE Usuario (usuario_id int NOT NULL AUTO_INCREMENT, usuario_nickname char(50) NOT NULL, PRIMARY KEY (usuario_id));";
@@ -49,6 +49,7 @@ public class DAO {
         PreparedStatement ps = con.prepareStatement(sql2);
         ps.executeUpdate();        
     }
+    
     public void selectPrueba() throws SQLException {
         String sql = "SELECT * FROM materia;";
         PreparedStatement ps = con.prepareStatement(sql);
