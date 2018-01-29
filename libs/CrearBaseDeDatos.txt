@@ -1,0 +1,41 @@
+CREATE DATABASE SecundariaRefuerzo;
+USE SecundariaRefuerzo;
+CREATE TABLE Pregunta
+( 
+pregunta_id int NOT NULL AUTO_INCREMENT, 
+pregunta_contenido char(MAX) NOT NULL, 
+pregunta_materia int NOT NULL, 
+PRIMARY KEY (pregunta_id),
+FOREIGN KEY (pregunta_materia) REFERENCES Materia(materia_id)
+);
+CREATE TABLE Materia
+(
+materia_id int NOT NULL AUTO_INCREMENT,
+materia_nombre char(100) NOT NULL,
+PRIMARY KEY (materia_id)
+)
+CREATE TABLE Usuario
+(
+usuario_id int NOT NULL AUTO_INCREMENT,
+usuario_nickname char(50) NOT NULL,
+PRIMARY KEY (usuario_id)
+)
+CREATE TABLE PreguntasUsuario
+(
+usuario_id int NOT NULL,
+pregunta_id int NOT NULL,
+FOREIGN KEY (usuario_id) REFERENCES Usuario(usuario_id),
+FOREIGN KEY (pregunta_id) REFERENCES Pregunta(pregunta_id)
+)
+
+INSERT INTO MATERIA (materia_nombre) VALUES ('Matematicas');
+INSERT INTO MATERIA (materia_nombre) VALUES ('Espanol');
+INSERT INTO MATERIA (materia_nombre) VALUES('Ingles');
+INSERT INTO MATERIA (materia_nombre) VALUES('Artes');
+INSERT INTO MATERIA (materia_nombre) VALUES('Biologia');
+INSERT INTO MATERIA (materia_nombre) VALUES('Historia');
+INSERT INTO MATERIA (materia_nombre) VALUES('Geografia');
+
+SELECT * FROM MATERIA
+
+
